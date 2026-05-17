@@ -1,45 +1,9 @@
+import { Link } from "@tanstack/react-router";
 import { Service3DIcon } from "./Service3DIcon";
 import { useReveal } from "@/hooks/use-reveal";
+import { services, type Service } from "@/lib/services-data";
 
-const services = [
-  {
-    shape: "octahedron" as const,
-    title: "Desarrollo Web a Medida",
-    desc: "Sitios y plataformas web rápidas, escalables y optimizadas para conversión.",
-  },
-  {
-    shape: "box" as const,
-    title: "Software Empresarial",
-    desc: "ERPs, CRMs y sistemas internos diseñados para tu operación.",
-  },
-  {
-    shape: "sphere" as const,
-    title: "Aplicaciones Móviles",
-    desc: "Apps nativas y multiplataforma con experiencia de usuario impecable.",
-  },
-  {
-    shape: "torus" as const,
-    title: "Integraciones & APIs",
-    desc: "Conectamos tus sistemas, datos y servicios de terceros sin fricción.",
-  },
-  {
-    shape: "icosa" as const,
-    title: "Cloud & DevOps",
-    desc: "Infraestructura moderna, despliegues continuos y observabilidad.",
-  },
-  {
-    shape: "cone" as const,
-    title: "Consultoría Tecnológica",
-    desc: "Estrategia, arquitectura y acompañamiento para escalar tu negocio.",
-  },
-];
-
-function ServiceCard({
-  shape,
-  title,
-  desc,
-  delay,
-}: (typeof services)[number] & { delay: number }) {
+function ServiceCard({ service, delay }: { service: Service; delay: number }) {
   const ref = useReveal<HTMLDivElement>();
   return (
     <div
@@ -48,15 +12,25 @@ function ServiceCard({
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="-ml-3 -mt-3 mb-4">
-        <Service3DIcon shape={shape} />
+        <Service3DIcon
+          shape={service.shape}
+          color={service.color}
+          accent={service.accent}
+        />
       </div>
       <h3 className="font-display text-xl font-semibold tracking-tight">
-        {title}
+        {service.title}
       </h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-      <div className="mt-6 inline-flex items-center text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+        {service.desc}
+      </p>
+      <Link
+        to="/servicios/$slug"
+        params={{ slug: service.slug }}
+        className="mt-6 inline-flex items-center text-sm font-medium text-primary transition-opacity"
+      >
         Saber más →
-      </div>
+      </Link>
     </div>
   );
 }
@@ -80,7 +54,7 @@ export function Services() {
 
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
-            <ServiceCard key={s.title} {...s} delay={i * 60} />
+            <ServiceCard key={s.slug} service={s} delay={i * 60} />
           ))}
         </div>
       </div>

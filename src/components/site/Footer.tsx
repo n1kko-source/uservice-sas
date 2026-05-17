@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import logo from "@/assets/uservice-logo.jpg";
 
 export function Footer() {
@@ -24,10 +25,10 @@ export function Footer() {
         <div>
           <h4 className="text-sm font-semibold">Empresa</h4>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li><a href="#nosotros" className="hover:text-foreground">Nosotros</a></li>
-            <li><a href="#servicios" className="hover:text-foreground">Servicios</a></li>
-            <li><a href="#blog" className="hover:text-foreground">Blog</a></li>
-            <li><a href="#contacto" className="hover:text-foreground">Contacto</a></li>
+            <li><Link to="/nosotros" className="hover:text-foreground">Nosotros</Link></li>
+            <li><Link to="/" hash="servicios" className="hover:text-foreground">Servicios</Link></li>
+            <li><Link to="/blog" className="hover:text-foreground">Blog</Link></li>
+            <li><Link to="/" hash="contacto" className="hover:text-foreground">Contacto</Link></li>
           </ul>
         </div>
 
