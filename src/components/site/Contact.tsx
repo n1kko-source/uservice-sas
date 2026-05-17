@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { toast } from "sonner";
 
+const countries = [
+  "Colombia", "México", "Argentina", "Chile", "Perú", "Ecuador",
+  "Venezuela", "Uruguay", "Paraguay", "Bolivia", "Costa Rica",
+  "Panamá", "Guatemala", "Honduras", "El Salvador", "Nicaragua",
+  "República Dominicana", "Puerto Rico", "Cuba",
+  "España", "Estados Unidos", "Canadá", "Brasil", "Reino Unido",
+  "Francia", "Alemania", "Italia", "Portugal", "Otro",
+];
+
 export function Contact() {
   const [loading, setLoading] = useState(false);
 
@@ -48,6 +57,28 @@ export function Contact() {
           <Field label="Nombre" name="name" />
           <Field label="Email" name="email" type="email" />
           <Field label="Empresa" name="company" required={false} />
+
+          <div>
+            <label className="mb-2 block text-xs uppercase tracking-wider text-primary-foreground/60">
+              País
+            </label>
+            <select
+              name="country"
+              required
+              defaultValue=""
+              className="w-full appearance-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-primary-foreground focus:border-white/30 focus:outline-none"
+            >
+              <option value="" disabled className="bg-primary text-primary-foreground">
+                Selecciona tu país…
+              </option>
+              {countries.map((c) => (
+                <option key={c} value={c} className="bg-primary text-primary-foreground">
+                  {c}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <div>
             <label className="mb-2 block text-xs uppercase tracking-wider text-primary-foreground/60">
               Cuéntanos sobre tu proyecto

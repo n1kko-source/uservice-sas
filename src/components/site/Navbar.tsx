@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import logo from "@/assets/uservice-logo.jpg";
 
 const links = [
-  { href: "#inicio", label: "Inicio" },
-  { href: "#servicios", label: "Servicios" },
-  { href: "#clientes", label: "Clientes" },
-  { href: "#nosotros", label: "Nosotros" },
-  { href: "#blog", label: "Blog" },
-];
+  { to: "/", hash: "inicio", label: "Inicio" },
+  { to: "/", hash: "servicios", label: "Servicios" },
+  { to: "/", hash: "clientes", label: "Clientes" },
+  { to: "/nosotros", label: "Nosotros" },
+  { to: "/blog", label: "Blog" },
+] as const;
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -29,7 +30,7 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6">
-        <a href="#inicio" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <img
             src={logo}
             alt="UService logo"
@@ -38,27 +39,29 @@ export function Navbar() {
           <span className="font-display text-[15px] font-semibold tracking-tight">
             UService
           </span>
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
+            <li key={l.label}>
+              <Link
+                to={l.to}
+                hash={"hash" in l ? l.hash : undefined}
                 className="text-[13px] text-foreground/80 transition-colors hover:text-foreground"
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
-        <a
-          href="#contacto"
+        <Link
+          to="/"
+          hash="contacto"
           className="hidden rounded-full bg-primary px-4 py-2 text-[13px] font-medium text-primary-foreground transition-colors hover:bg-primary/90 md:inline-flex"
         >
           Cotizar proyecto
-        </a>
+        </Link>
 
         <button
           aria-label="Abrir menú"
@@ -76,23 +79,25 @@ export function Navbar() {
         <div className="border-t border-border/60 bg-background/95 backdrop-blur-xl md:hidden">
           <ul className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-6">
             {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
+              <li key={l.label}>
+                <Link
+                  to={l.to}
+                  hash={"hash" in l ? l.hash : undefined}
                   onClick={() => setOpen(false)}
                   className="text-base text-foreground"
                 >
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
-            <a
-              href="#contacto"
+            <Link
+              to="/"
+              hash="contacto"
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex w-fit rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
             >
               Cotizar proyecto
-            </a>
+            </Link>
           </ul>
         </div>
       )}
