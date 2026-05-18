@@ -9,11 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TerminosYCondicionesRouteImport } from './routes/terminos-y-condiciones'
 import { Route as NosotrosRouteImport } from './routes/nosotros'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServiciosSlugRouteImport } from './routes/servicios.$slug'
 
+const TerminosYCondicionesRoute = TerminosYCondicionesRouteImport.update({
+  id: '/terminos-y-condiciones',
+  path: '/terminos-y-condiciones',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NosotrosRoute = NosotrosRouteImport.update({
   id: '/nosotros',
   path: '/nosotros',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/nosotros': typeof NosotrosRoute
+  '/terminos-y-condiciones': typeof TerminosYCondicionesRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/nosotros': typeof NosotrosRoute
+  '/terminos-y-condiciones': typeof TerminosYCondicionesRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
 }
 export interface FileRoutesById {
@@ -52,25 +60,50 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/nosotros': typeof NosotrosRoute
+  '/terminos-y-condiciones': typeof TerminosYCondicionesRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog' | '/nosotros' | '/servicios/$slug'
+  fullPaths:
+    | '/'
+    | '/blog'
+    | '/nosotros'
+    | '/terminos-y-condiciones'
+    | '/servicios/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog' | '/nosotros' | '/servicios/$slug'
-  id: '__root__' | '/' | '/blog' | '/nosotros' | '/servicios/$slug'
+  to:
+    | '/'
+    | '/blog'
+    | '/nosotros'
+    | '/terminos-y-condiciones'
+    | '/servicios/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/blog'
+    | '/nosotros'
+    | '/terminos-y-condiciones'
+    | '/servicios/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRoute
   NosotrosRoute: typeof NosotrosRoute
+  TerminosYCondicionesRoute: typeof TerminosYCondicionesRoute
   ServiciosSlugRoute: typeof ServiciosSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terminos-y-condiciones': {
+      id: '/terminos-y-condiciones'
+      path: '/terminos-y-condiciones'
+      fullPath: '/terminos-y-condiciones'
+      preLoaderRoute: typeof TerminosYCondicionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/nosotros': {
       id: '/nosotros'
       path: '/nosotros'
@@ -106,8 +139,19 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRoute,
   NosotrosRoute: NosotrosRoute,
+  TerminosYCondicionesRoute: TerminosYCondicionesRoute,
   ServiciosSlugRoute: ServiciosSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

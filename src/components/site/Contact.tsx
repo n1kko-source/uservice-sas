@@ -38,6 +38,21 @@ export function Contact() {
             con una propuesta clara, sin compromiso.
           </p>
 
+          <div className="mt-10 flex gap-8">
+            <div className="flex flex-col items-center">
+              <img src="https://i.pravatar.cc/150?u=a042581f4e29026024d" alt="Integrante Latam" className="h-16 w-16 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg" />
+              <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">Latam</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Integrante Europa" className="h-16 w-16 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg" />
+              <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">Europa</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src="https://i.pravatar.cc/150?u=a04258114e29026702d" alt="Integrante Latam" className="h-16 w-16 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg" />
+              <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">Latam</span>
+            </div>
+          </div>
+
           <dl className="mt-10 space-y-4 text-sm text-primary-foreground/80">
             <div>
               <dt className="text-primary-foreground/50">Email</dt>

@@ -1,4 +1,4 @@
-# Plan: Portafolio UService (estilo Apple)
+# Plan: Portafolio UService 
 
 Sitio de presentación para UService con estética **clara, minimalista y premium** inspirada en apple.com, secciones full-bleed con mucho aire, tipografía grande y componentes 3D sutiles pero impactantes.
 
@@ -8,7 +8,7 @@ Sitio de presentación para UService con estética **clara, minimalista y premiu
 - **Paleta** (la entregada por ti):
   - `#f1f5f9` — fondo claro principal
   - `#0f1e36` — azul oscuro (acentos, CTAs, secciones de contraste)
-  - `#1d1d1f` — gris casi negro (tipografía, estilo Apple)
+  - `#1d1d1f` — gris casi negro (tipografía)
 - **Acciones / CTAs**: alternan entre **azul oscuro `#0f1e36`** y **claro `#f1f5f9`** según el fondo (botones oscuros sobre claro, botones claros con borde sobre oscuro). Hover sutil con transición suave.
 - **Tipografía**: SF Pro–like → **Inter** (cuerpo) + **Space Grotesk** o **Inter tight** (titulares grandes 64–120px), tracking ajustado tipo Apple.
 - **Layout**: secciones apiladas full-width, contenido centrado max-w-6xl, headers grandes, párrafos cortos.

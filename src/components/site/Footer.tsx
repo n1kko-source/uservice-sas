@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Linkedin, Instagram, Mail } from "lucide-react";
 import logo from "@/assets/uservice-logo.jpg";
 
 export function Footer() {
@@ -20,6 +21,18 @@ export function Footer() {
             Soluciones tecnológicas, software a medida y desarrollo web para
             empresas que quieren crecer.
           </p>
+          <p className="mt-3 text-sm font-medium">NIT: 901.000.000-0</p>
+          <div className="mt-6 flex gap-4">
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a href="mailto:hola@uservice.com" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Mail className="h-5 w-5" />
+            </a>
+          </div>
         </div>
 
         <div>
@@ -36,8 +49,7 @@ export function Footer() {
           <h4 className="text-sm font-semibold">Legal</h4>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li><a href="#" className="hover:text-foreground">Privacidad</a></li>
-            <li><a href="#" className="hover:text-foreground">Términos</a></li>
-            <li><a href="#" className="hover:text-foreground">Cookies</a></li>
+            <li><Link to="/terminos-y-condiciones" className="hover:text-foreground">Términos y Condiciones</Link></li>
           </ul>
         </div>
       </div>

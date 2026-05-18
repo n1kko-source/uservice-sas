@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/uservice-logo.jpg";
+import logo from "@/assets/us-logo.png";
 
 const links = [
   { to: "/", hash: "inicio", label: "Inicio" },
@@ -34,9 +34,9 @@ export function Navbar() {
           <img
             src={logo}
             alt="UService logo"
-            className="h-7 w-7 rounded-md object-contain"
+            className="h-12 w-12 rounded-md object-contain"
           />
-          <span className="font-display text-[15px] font-semibold tracking-tight">
+          <span className="font-display text-[20px] font-semibold tracking-tight">
             UService
           </span>
         </Link>

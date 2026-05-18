@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, RoundedBox } from "@react-three/drei";
+import { Float, RoundedBox, Environment, ContactShadows } from "@react-three/drei";
 import { Suspense, useRef } from "react";
 import type { Group } from "three";
 import type { ServiceShape } from "@/lib/services-data";
@@ -21,14 +21,17 @@ function Geometry({
     }
   });
 
-  // Friendlier, softer material — less metallic, slightly glossy.
+  // Improved, more realistic material — premium glossy feel
   const material = (
     <meshPhysicalMaterial
       color={color}
-      roughness={0.35}
-      metalness={0.15}
-      clearcoat={0.8}
-      clearcoatRoughness={0.2}
+      roughness={0.15}
+      metalness={0.3}
+      clearcoat={1}
+      clearcoatRoughness={0.1}
+      transmission={0.1}
+      thickness={0.5}
+      envMapIntensity={1.2}
     />
   );
 
@@ -103,11 +106,13 @@ export function Service3DIcon({
         camera={{ position: [0, 0, 3], fov: 45 }}
         gl={{ antialias: true, alpha: true }}
       >
-        <ambientLight intensity={0.75} />
-        <directionalLight position={[3, 3, 3]} intensity={1.1} />
-        <directionalLight position={[-3, -2, -2]} intensity={0.45} color={accent} />
+        <ambientLight intensity={0.6} />
+        <spotLight position={[5, 5, 5]} angle={0.2} penumbra={1} intensity={2} />
+        <directionalLight position={[-3, -2, -2]} intensity={0.5} color={accent} />
         <Suspense fallback={null}>
           <Geometry shape={shape} color={color} accent={accent} />
+          <Environment preset="city" />
+          <ContactShadows position={[0, -1.2, 0]} opacity={0.6} scale={10} blur={2.5} far={4} color="#000000" />
         </Suspense>
       </Canvas>
     </div>
