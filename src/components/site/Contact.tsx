@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import nicolasPerfil from "../../assets/nicolas-perfil.jpeg";
 
 const countries = [
   "Colombia", "México", "Argentina", "Chile", "Perú", "Ecuador",
@@ -40,27 +41,27 @@ export function Contact() {
 
           <div className="mt-10 flex gap-8">
             <div className="flex flex-col items-center">
-              <img src="https://i.pravatar.cc/150?u=a042581f4e29026024d" alt="Integrante Latam" className="h-16 w-16 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg" />
+              <img src="https://i.pravatar.cc/150?u=a042581f4e29026024d" alt="Integrante Latam" className="h-24 w-24 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg" />
               <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">Latam</span>
             </div>
             <div className="flex flex-col items-center">
-              <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Integrante Europa" className="h-16 w-16 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg" />
+              <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Integrante Europa" className="h-24 w-24 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg" />
               <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">Europa</span>
             </div>
             <div className="flex flex-col items-center">
-              <img src="https://i.pravatar.cc/150?u=a04258114e29026702d" alt="Integrante Latam" className="h-16 w-16 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg" />
-              <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">Latam</span>
+              <img src={nicolasPerfil} alt="Integrante Europa" className="h-24 w-24 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg" />
+              <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">Europa</span>
             </div>
           </div>
 
           <dl className="mt-10 space-y-4 text-sm text-primary-foreground/80">
             <div>
               <dt className="text-primary-foreground/50">Email</dt>
-              <dd className="mt-1">hola@uservice.com</dd>
+              <dd className="mt-1">uservicesas@gmail.com</dd>
             </div>
             <div>
               <dt className="text-primary-foreground/50">Teléfono</dt>
-              <dd className="mt-1">+57 300 000 0000</dd>
+              <dd className="mt-1">+57 320 644 8690</dd>
             </div>
           </dl>
         </div>

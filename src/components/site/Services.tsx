@@ -37,7 +37,7 @@ function ServiceCard({ service, delay }: { service: Service; delay: number }) {
 
 export function Services() {
   return (
-    <section id="servicios" className="relative py-28 md:py-40">
+    <section id="servicios" className="relative py-28 md:py-18">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">

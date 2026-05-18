@@ -8,7 +8,7 @@ git remote add origin https://github.com/n1kko-source/uservice-tech-showcase.git
 git add .
 
 # 4. Crea tu primer commit (guardado local)
-git commit -m "Segundo commit: Estructura de la barra de navegación y servicios"
+git commit -m "Tercer commit: Agregando los perfiles de los integrantes del equipo"
 
 # 5. Asegúrate de estar en la rama principal (main)
 git branch -M main

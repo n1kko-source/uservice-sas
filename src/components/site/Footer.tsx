@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Instagram, Mail } from "lucide-react";
-import logo from "@/assets/uservice-logo.jpg";
+import logo from "@/assets/us-logo.png";
 
 export function Footer() {
   return (
@@ -29,7 +29,7 @@ export function Footer() {
             <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
               <Instagram className="h-5 w-5" />
             </a>
-            <a href="mailto:hola@uservice.com" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a href="mailto:uservicesas@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors">
               <Mail className="h-5 w-5" />
             </a>
           </div>

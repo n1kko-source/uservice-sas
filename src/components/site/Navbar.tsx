@@ -29,7 +29,7 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6">
+      <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6 mt-10">
         <Link to="/" className="flex items-center gap-2">
           <img
             src={logo}

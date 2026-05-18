@@ -2,7 +2,7 @@ import { Hero3D } from "./Hero3D";
 
 export function Hero() {
   return (
-    <section id="inicio" className="relative overflow-hidden pt-32 pb-24 md:pt-44 md:pb-32">
+    <section id="inicio" className="relative overflow-hidden pt-32 pb-24 md:pt-36 md:pb-32">
       {/* Subtle radial backdrop */}
       <div
         className="pointer-events-none absolute inset-0 -z-10"
