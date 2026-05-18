@@ -8,7 +8,7 @@ git remote add origin https://github.com/n1kko-source/uservice-tech-showcase.git
 git add .
 
 # 4. Crea tu primer commit (guardado local)
-git commit -m "Quinto commit: Solución a error de despliegue en cloudflare"
+git commit -m "Sexto commit: Solución a error de despliegue en cloudflare (_redirects)"
 
 # 5. Asegúrate de estar en la rama principal (main)
 git branch -M main
