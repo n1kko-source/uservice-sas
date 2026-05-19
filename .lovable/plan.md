@@ -63,4 +63,3 @@ Placeholders profesionales en español (servicios, descripciones, métricas, 3 p
 - Páginas de detalle individuales de blog/servicios.
 - Multi-idioma.
 
-¿Apruebas para empezar a construir?
