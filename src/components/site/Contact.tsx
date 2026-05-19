@@ -11,17 +11,52 @@ const countries = [
   "Francia", "Alemania", "Italia", "Portugal", "Otro",
 ];
 
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/uservicesas@gmail.com";
+
 export function Contact() {
   const [loading, setLoading] = useState(false);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // Validación básica
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const country = String(formData.get("country") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+    if (!name || name.length > 100) return toast.error("Nombre inválido.");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 255)
+      return toast.error("Email inválido.");
+    if (!country) return toast.error("Selecciona tu país.");
+    if (!message || message.length > 2000)
+      return toast.error("Mensaje inválido (máx. 2000 caracteres).");
+
+    // Opciones de FormSubmit
+    formData.append("_subject", `Nuevo contacto UService — ${name}`);
+    formData.append("_template", "table");
+    formData.append("_captcha", "false");
+
     setLoading(true);
-    setTimeout(() => {
+    try {
+      const res = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && (data.success === "true" || data.success === true)) {
+        toast.success("¡Gracias! Te contactaremos en menos de 24h.");
+        form.reset();
+      } else {
+        toast.error("No pudimos enviar el mensaje. Inténtalo de nuevo.");
+      }
+    } catch {
+      toast.error("Error de conexión. Revisa tu internet e inténtalo de nuevo.");
+    } finally {
       setLoading(false);
-      toast.success("¡Gracias! Te contactaremos en menos de 24h.");
-      (e.target as HTMLFormElement).reset();
-    }, 700);
+    }
   }
 
   return (
