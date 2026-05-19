@@ -34,7 +34,9 @@ const countries = [
   "Otro",
 ];
 
-const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/uservicesas@gmail.com";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+// TODO: Obtén tu clave gratuita en https://web3forms.com/ y colócala aquí
+const WEB3FORMS_ACCESS_KEY = "9fa42aaa-d678-4852-8c9f-f2cfb9ca17d5";
 
 export function Contact() {
   const [loading, setLoading] = useState(false);
@@ -56,17 +58,20 @@ export function Contact() {
     if (!message || message.length > 2000)
       return toast.error("Mensaje inválido (máx. 2000 caracteres).");
 
-    // Opciones de FormSubmit
-    formData.append("_subject", `Nuevo contacto UService — ${name}`);
-    formData.append("_template", "table");
-    formData.append("_captcha", "false");
+    // Opciones de Web3Forms
+    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+    formData.append("subject", `Nuevo contacto UService — ${name}`);
+    formData.append("from_name", "UService Web");
 
     setLoading(true);
     try {
-      const res = await fetch(FORMSUBMIT_ENDPOINT, {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && (data.success === "true" || data.success === true)) {
