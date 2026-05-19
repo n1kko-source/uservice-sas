@@ -8,7 +8,7 @@ git remote add origin https://github.com/n1kko-source/uservice-tech-showcase.git
 git add .
 
 # 4. Crea tu primer commit (guardado local)
-git commit -m "Commit Vercel Deployment"
+git commit -m "ABCD26-6 feat: métricas de uptime 30 días y footer institucional HSR"
 
 # 5. Asegúrate de estar en la rama principal (main)
 git branch -M main
