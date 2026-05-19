@@ -24,21 +24,13 @@ export function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/75 backdrop-blur-xl border-b border-border/60"
-          : "bg-transparent"
+        scrolled ? "bg-background/75 backdrop-blur-xl border-b border-border/60" : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6 mt-10">
         <Link to="/" className="flex items-center gap-2">
-          <img
-            src={logo}
-            alt="UService logo"
-            className="h-12 w-12 rounded-md object-contain"
-          />
-          <span className="font-display text-[20px] font-semibold tracking-tight">
-            UService
-          </span>
+          <img src={logo} alt="UService logo" className="h-12 w-12 rounded-md object-contain" />
+          <span className="font-display text-[20px] font-semibold tracking-tight">UService</span>
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -63,11 +55,7 @@ export function Navbar() {
           Cotizar proyecto
         </Link>
 
-        <button
-          aria-label="Abrir menú"
-          className="md:hidden"
-          onClick={() => setOpen((v) => !v)}
-        >
+        <button aria-label="Abrir menú" className="md:hidden" onClick={() => setOpen((v) => !v)}>
           <div className="space-y-1.5">
             <span className="block h-px w-6 bg-foreground" />
             <span className="block h-px w-6 bg-foreground" />

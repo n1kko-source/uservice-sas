@@ -40,9 +40,7 @@ function PostCard({ post, i }: { post: (typeof posts)[number]; i: number }) {
           </span>
           <span>{post.date}</span>
         </div>
-        <h3 className="mt-4 font-display text-xl font-semibold tracking-tight">
-          {post.title}
-        </h3>
+        <h3 className="mt-4 font-display text-xl font-semibold tracking-tight">{post.title}</h3>
         <div className="mt-4 inline-flex items-center text-sm font-medium text-primary">
           Leer artículo →
         </div>
@@ -57,9 +55,7 @@ export function Blog() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">
-              Blog
-            </p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">Blog</p>
             <h2 className="mt-4 text-balance font-display text-4xl font-semibold tracking-tight md:text-6xl">
               Ideas para construir mejor software.
             </h2>

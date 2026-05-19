@@ -17,8 +17,8 @@ export function Hero() {
           <span className="block text-primary">que impulsan tu negocio.</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-balance text-base text-muted-foreground md:text-lg">
-          En UService diseñamos, desarrollamos y desplegamos software empresarial,
-          aplicaciones web y móviles con estándares de clase mundial.
+          En UService diseñamos, desarrollamos y desplegamos software empresarial, aplicaciones web
+          y móviles con estándares de clase mundial.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a

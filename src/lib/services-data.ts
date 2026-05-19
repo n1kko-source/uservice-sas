@@ -1,10 +1,4 @@
-export type ServiceShape =
-  | "roundedBox"
-  | "sphere"
-  | "torus"
-  | "capsule"
-  | "knot"
-  | "dodeca";
+export type ServiceShape = "roundedBox" | "sphere" | "torus" | "capsule" | "knot" | "dodeca";
 
 export type Service = {
   slug: string;

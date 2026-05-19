@@ -1,7 +1,16 @@
 const clients = [
-  "NovaBank", "Helix Health", "Quantum Logistics", "Skyline Retail",
-  "Aurora Energy", "Pixel Foundry", "Vertex Studios", "Northwind Co.",
-  "Solaris", "Indigo Labs", "Meridian Group", "OrbitWorks",
+  "NovaBank",
+  "Helix Health",
+  "Quantum Logistics",
+  "Skyline Retail",
+  "Aurora Energy",
+  "Pixel Foundry",
+  "Vertex Studios",
+  "Northwind Co.",
+  "Solaris",
+  "Indigo Labs",
+  "Meridian Group",
+  "OrbitWorks",
 ];
 
 export function Clients() {

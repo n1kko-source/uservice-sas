@@ -14,8 +14,8 @@ export function Stats() {
             Resultados que se miden, no que se cuentan.
           </h2>
           <p className="text-balance text-primary-foreground/70 md:text-lg">
-            Una década construyendo software para empresas en crecimiento, con
-            entregas puntuales y un compromiso real por cada producto.
+            Una década construyendo software para empresas en crecimiento, con entregas puntuales y
+            un compromiso real por cada producto.
           </p>
         </div>
 
@@ -25,9 +25,7 @@ export function Stats() {
               <div className="font-display text-5xl font-semibold tracking-tight md:text-6xl">
                 {s.value}
               </div>
-              <div className="mt-3 text-sm text-primary-foreground/65">
-                {s.label}
-              </div>
+              <div className="mt-3 text-sm text-primary-foreground/65">{s.label}</div>
             </div>
           ))}
         </div>

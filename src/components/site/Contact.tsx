@@ -3,12 +3,35 @@ import { toast } from "sonner";
 import nicolasPerfil from "../../assets/nicolas-perfil.jpeg";
 
 const countries = [
-  "Colombia", "México", "Argentina", "Chile", "Perú", "Ecuador",
-  "Venezuela", "Uruguay", "Paraguay", "Bolivia", "Costa Rica",
-  "Panamá", "Guatemala", "Honduras", "El Salvador", "Nicaragua",
-  "República Dominicana", "Puerto Rico", "Cuba",
-  "España", "Estados Unidos", "Canadá", "Brasil", "Reino Unido",
-  "Francia", "Alemania", "Italia", "Portugal", "Otro",
+  "Colombia",
+  "México",
+  "Argentina",
+  "Chile",
+  "Perú",
+  "Ecuador",
+  "Venezuela",
+  "Uruguay",
+  "Paraguay",
+  "Bolivia",
+  "Costa Rica",
+  "Panamá",
+  "Guatemala",
+  "Honduras",
+  "El Salvador",
+  "Nicaragua",
+  "República Dominicana",
+  "Puerto Rico",
+  "Cuba",
+  "España",
+  "Estados Unidos",
+  "Canadá",
+  "Brasil",
+  "Reino Unido",
+  "Francia",
+  "Alemania",
+  "Italia",
+  "Portugal",
+  "Otro",
 ];
 
 const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/uservicesas@gmail.com";
@@ -70,22 +93,40 @@ export function Contact() {
             Hablemos de tu próximo proyecto.
           </h2>
           <p className="mt-6 max-w-md text-primary-foreground/70 md:text-lg">
-            Cuéntanos lo que tienes en mente. Te respondemos en menos de 24 horas
-            con una propuesta clara, sin compromiso.
+            Cuéntanos lo que tienes en mente. Te respondemos en menos de 24 horas con una propuesta
+            clara, sin compromiso.
           </p>
 
           <div className="mt-10 flex gap-8">
             <div className="flex flex-col items-center">
-              <img src="https://i.pravatar.cc/150?u=a042581f4e29026024d" alt="Integrante Latam" className="h-24 w-24 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg" />
-              <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">Latam</span>
+              <img
+                src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                alt="Integrante Latam"
+                className="h-24 w-24 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg"
+              />
+              <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">
+                Latam
+              </span>
             </div>
             <div className="flex flex-col items-center">
-              <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Integrante Europa" className="h-24 w-24 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg" />
-              <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">Europa</span>
+              <img
+                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                alt="Integrante Europa"
+                className="h-24 w-24 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg"
+              />
+              <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">
+                Europa
+              </span>
             </div>
             <div className="flex flex-col items-center">
-              <img src={nicolasPerfil} alt="Integrante Europa" className="h-24 w-24 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg" />
-              <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">Europa</span>
+              <img
+                src={nicolasPerfil}
+                alt="Integrante Europa"
+                className="h-24 w-24 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg"
+              />
+              <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">
+                Europa
+              </span>
             </div>
           </div>
 

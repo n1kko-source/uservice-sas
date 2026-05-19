@@ -29,9 +29,7 @@ export const Route = createFileRoute("/servicios/$slug")({
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="font-display text-5xl font-semibold">Servicio no encontrado</h1>
-        <p className="mt-3 text-muted-foreground">
-          El servicio que buscas no existe o fue movido.
-        </p>
+        <p className="mt-3 text-muted-foreground">El servicio que buscas no existe o fue movido.</p>
         <Link
           to="/"
           hash="servicios"
@@ -85,9 +83,7 @@ function ServiceDetail() {
               <h1 className="mt-4 text-balance font-display text-5xl font-semibold tracking-tight md:text-6xl">
                 {service.title}
               </h1>
-              <p className="mt-6 text-balance text-lg text-muted-foreground">
-                {service.long}
-              </p>
+              <p className="mt-6 text-balance text-lg text-muted-foreground">{service.long}</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   to="/"
@@ -113,11 +109,7 @@ function ServiceDetail() {
               }}
             >
               <div className="scale-[2.4]">
-                <Service3DIcon
-                  shape={service.shape}
-                  color={service.color}
-                  accent="#ffffff"
-                />
+                <Service3DIcon shape={service.shape} color={service.color} accent="#ffffff" />
               </div>
             </div>
           </div>
@@ -139,8 +131,8 @@ function ServiceDetail() {
                 Lo que incluye
               </h2>
               <p className="mt-4 text-muted-foreground">
-                Cada proyecto se adapta a tu contexto, pero estos son los
-                componentes que más valor aportan en este servicio.
+                Cada proyecto se adapta a tu contexto, pero estos son los componentes que más valor
+                aportan en este servicio.
               </p>
               <ul className="mt-8 space-y-3">
                 {service.features.map((f) => (
@@ -165,10 +157,7 @@ function ServiceDetail() {
             </p>
             <div className="mt-10 grid gap-6 md:grid-cols-4">
               {service.deliverables.map((d, i) => (
-                <div
-                  key={d}
-                  className="rounded-2xl border border-border bg-card p-6"
-                >
+                <div key={d} className="rounded-2xl border border-border bg-card p-6">
                   <div className="font-display text-3xl font-semibold text-primary">
                     {String(i + 1).padStart(2, "0")}
                   </div>
@@ -185,11 +174,7 @@ function ServiceDetail() {
             <h2 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">
               Otros servicios
             </h2>
-            <Link
-              to="/"
-              hash="servicios"
-              className="text-sm font-medium text-primary"
-            >
+            <Link to="/" hash="servicios" className="text-sm font-medium text-primary">
               Ver todos →
             </Link>
           </div>

@@ -82,8 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "UService — Soluciones tecnológicas" },
       {
         property: "og:description",
-        content:
-          "Software a medida, desarrollo web, apps móviles y consultoría tecnológica.",
+        content: "Software a medida, desarrollo web, apps móviles y consultoría tecnológica.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

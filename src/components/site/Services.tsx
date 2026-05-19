@@ -12,18 +12,10 @@ function ServiceCard({ service, delay }: { service: Service; delay: number }) {
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="-ml-3 -mt-3 mb-4">
-        <Service3DIcon
-          shape={service.shape}
-          color={service.color}
-          accent={service.accent}
-        />
+        <Service3DIcon shape={service.shape} color={service.color} accent={service.accent} />
       </div>
-      <h3 className="font-display text-xl font-semibold tracking-tight">
-        {service.title}
-      </h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-        {service.desc}
-      </p>
+      <h3 className="font-display text-xl font-semibold tracking-tight">{service.title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.desc}</p>
       <Link
         to="/servicios/$slug"
         params={{ slug: service.slug }}
@@ -47,8 +39,8 @@ export function Services() {
             Todo lo que tu producto digital necesita.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-balance text-muted-foreground md:text-lg">
-            De la idea al lanzamiento. De la operación al crecimiento. Un solo
-            equipo, una sola promesa: excelencia técnica.
+            De la idea al lanzamiento. De la operación al crecimiento. Un solo equipo, una sola
+            promesa: excelencia técnica.
           </p>
         </div>
 

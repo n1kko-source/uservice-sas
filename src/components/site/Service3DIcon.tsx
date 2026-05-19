@@ -112,7 +112,14 @@ export function Service3DIcon({
         <Suspense fallback={null}>
           <Geometry shape={shape} color={color} accent={accent} />
           <Environment preset="city" />
-          <ContactShadows position={[0, -1.2, 0]} opacity={0.6} scale={10} blur={2.5} far={4} color="#000000" />
+          <ContactShadows
+            position={[0, -1.2, 0]}
+            opacity={0.6}
+            scale={10}
+            blur={2.5}
+            far={4}
+            color="#000000"
+          />
         </Suspense>
       </Canvas>
     </div>
