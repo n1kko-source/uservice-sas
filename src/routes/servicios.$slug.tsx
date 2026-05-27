@@ -107,10 +107,15 @@ function ServiceDetail() {
               style={{
                 background: `linear-gradient(135deg, ${service.color} 0%, ${service.accent} 100%)`,
               }}
-              aria-hidden="true"
             >
-              <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/15 blur-3xl" />
-              <div className="absolute -bottom-24 -left-16 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
+              <img
+                src={service.image}
+                alt={service.title}
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
         </section>
