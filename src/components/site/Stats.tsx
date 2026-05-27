@@ -1,8 +1,7 @@
 const stats = [
-  { value: "+250", label: "Proyectos entregados" },
-  { value: "+80", label: "Clientes activos" },
-  { value: "10", label: "Años de experiencia" },
-  { value: "12", label: "Países atendidos" },
+  { value: "12", label: "Proyectos entregados" },
+  { value: "8", label: "Clientes activos" },
+  { value: "1", label: "Año de experiencia" },
 ];
 
 export function Stats() {
@@ -14,12 +13,12 @@ export function Stats() {
             Resultados que se miden, no que se cuentan.
           </h2>
           <p className="text-balance text-primary-foreground/70 md:text-lg">
-            Una década construyendo software para empresas en crecimiento, con entregas puntuales y
-            un compromiso real por cada producto.
+            “Desarrollamos soluciones digitales modernas con atención cercana y compromiso en cada
+            entrega.”
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-2 gap-y-12 md:grid-cols-4">
+        <div className="mt-16 grid grid-cols-1 gap-y-12 sm:grid-cols-3">
           {stats.map((s) => (
             <div key={s.label}>
               <div className="font-display text-5xl font-semibold tracking-tight md:text-6xl">
