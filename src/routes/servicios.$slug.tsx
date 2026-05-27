@@ -107,10 +107,15 @@ function ServiceDetail() {
               style={{
                 background: `linear-gradient(135deg, ${service.color} 0%, ${service.accent} 100%)`,
               }}
-              aria-hidden="true"
             >
-              <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/15 blur-3xl" />
-              <div className="absolute -bottom-24 -left-16 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
+              <img
+                src={service.image}
+                alt={service.title}
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
         </section>
@@ -118,14 +123,16 @@ function ServiceDetail() {
         {/* Image + text block */}
         <section className="mx-auto max-w-7xl px-6 py-16 md:py-24">
           <div className="grid items-center gap-12 md:grid-cols-2">
-            <div
-              className="aspect-[4/3] w-full rounded-3xl border border-border"
-              style={{
-                background: `linear-gradient(160deg, ${service.accent} 0%, ${service.color} 100%)`,
-              }}
-              role="img"
-              aria-label={`Imagen ilustrativa de ${service.title}`}
-            />
+            <div className="aspect-[4/3] w-full overflow-hidden rounded-3xl border border-border">
+              <img
+                src={service.image}
+                alt={`Imagen ilustrativa de ${service.title}`}
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="h-full w-full object-cover"
+              />
+            </div>
             <div>
               <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
                 Lo que incluye

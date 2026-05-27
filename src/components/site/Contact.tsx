@@ -143,6 +143,7 @@ export function Contact() {
             <div>
               <dt className="text-primary-foreground/50">Teléfono</dt>
               <dd className="mt-1">+57 320 644 8690</dd>
+              <dd className="mt-1">+57 310 851 3283</dd>
             </div>
           </dl>
         </div>

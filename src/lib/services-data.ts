@@ -1,3 +1,10 @@
+import desarrolloWebImg from "@/assets/services/desarrollo-web.jpg";
+import softwareEmpresarialImg from "@/assets/services/software-empresarial.jpg";
+import aplicacionesMovilesImg from "@/assets/services/aplicaciones-moviles.jpg";
+import integracionesApisImg from "@/assets/services/integraciones-apis.jpg";
+import cloudDevopsImg from "@/assets/services/cloud-devops.jpg";
+import consultoriaImg from "@/assets/services/consultoria.jpg";
+
 export type ServiceShape = "roundedBox" | "sphere" | "torus" | "capsule" | "knot" | "dodeca";
 
 export type Service = {
@@ -10,6 +17,7 @@ export type Service = {
   long: string;
   features: string[];
   deliverables: string[];
+  image: string;
 };
 
 export const services: Service[] = [
@@ -33,6 +41,7 @@ export const services: Service[] = [
       "Implementación full-stack",
       "Deploy + monitoreo",
     ],
+    image: desarrolloWebImg,
   },
   {
     slug: "software-empresarial",
@@ -54,6 +63,7 @@ export const services: Service[] = [
       "Desarrollo iterativo",
       "Soporte y evolución",
     ],
+    image: softwareEmpresarialImg,
   },
   {
     slug: "aplicaciones-moviles",
@@ -75,6 +85,7 @@ export const services: Service[] = [
       "MVP en 8–12 semanas",
       "Lanzamiento y mejoras continuas",
     ],
+    image: aplicacionesMovilesImg,
   },
   {
     slug: "integraciones-apis",
@@ -96,6 +107,7 @@ export const services: Service[] = [
       "Implementación y pruebas",
       "Documentación viva",
     ],
+    image: integracionesApisImg,
   },
   {
     slug: "cloud-devops",
@@ -117,6 +129,7 @@ export const services: Service[] = [
       "Pipelines automatizados",
       "Runbook y handoff",
     ],
+    image: cloudDevopsImg,
   },
   {
     slug: "consultoria",
@@ -138,6 +151,7 @@ export const services: Service[] = [
       "Workshops y sesiones de trabajo",
       "Seguimiento mensual",
     ],
+    image: consultoriaImg,
   },
 ];
 
