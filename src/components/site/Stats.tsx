@@ -13,8 +13,8 @@ export function Stats() {
             Resultados que se miden, no que se cuentan.
           </h2>
           <p className="text-balance text-primary-foreground/70 md:text-lg">
-            “Desarrollamos soluciones digitales modernas con atención cercana y compromiso en cada
-            entrega.”
+            Desarrollamos soluciones digitales modernas con atención cercana y compromiso en cada
+            entrega.
           </p>
         </div>
 
