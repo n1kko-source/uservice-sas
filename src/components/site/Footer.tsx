@@ -15,7 +15,7 @@ export function Footer() {
             Soluciones tecnológicas, software a medida y desarrollo web para empresas que quieren
             crecer.
           </p>
-          <p className="mt-3 text-sm font-medium">NIT: 901.000.000-0</p>
+          <p className="mt-3 text-sm font-medium">NIT: 902.066.769-0</p>
           <div className="mt-6 flex gap-4">
             <a
               href="https://linkedin.com"
