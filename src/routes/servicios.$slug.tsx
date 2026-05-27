@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { Contact } from "@/components/site/Contact";
-import { Service3DIcon } from "@/components/site/Service3DIcon";
+
 import { Toaster } from "@/components/ui/sonner";
 import { getService, services, type Service } from "@/lib/services-data";
 
