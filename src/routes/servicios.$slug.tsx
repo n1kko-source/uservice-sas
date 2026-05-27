@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { Contact } from "@/components/site/Contact";
-import { Service3DIcon } from "@/components/site/Service3DIcon";
+
 import { Toaster } from "@/components/ui/sonner";
 import { getService, services, type Service } from "@/lib/services-data";
 
@@ -103,14 +103,14 @@ function ServiceDetail() {
             </div>
 
             <div
-              className="relative flex h-[360px] items-center justify-center overflow-hidden rounded-3xl border border-border md:h-[480px]"
+              className="relative h-[360px] overflow-hidden rounded-3xl border border-border md:h-[480px]"
               style={{
                 background: `linear-gradient(135deg, ${service.color} 0%, ${service.accent} 100%)`,
               }}
+              aria-hidden="true"
             >
-              <div className="scale-[2.4]">
-                <Service3DIcon shape={service.shape} color={service.color} accent="#ffffff" />
-              </div>
+              <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/15 blur-3xl" />
+              <div className="absolute -bottom-24 -left-16 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
             </div>
           </div>
         </section>
