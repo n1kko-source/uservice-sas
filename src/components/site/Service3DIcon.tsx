@@ -37,7 +37,7 @@ function Geometry({
 
   return (
     <Float speed={1.6} rotationIntensity={0.25} floatIntensity={0.9}>
-      <group ref={ref} scale={1.15}>
+      <group ref={ref} scale={0.82}>
         {shape === "roundedBox" && (
           <RoundedBox args={[1.1, 1.1, 1.1]} radius={0.22} smoothness={6}>
             {material}

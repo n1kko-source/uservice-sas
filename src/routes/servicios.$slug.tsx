@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { Contact } from "@/components/site/Contact";
-import { Service3DIcon } from "@/components/site/Service3DIcon";
+
 import { Toaster } from "@/components/ui/sonner";
 import { getService, services, type Service } from "@/lib/services-data";
 
@@ -103,14 +103,19 @@ function ServiceDetail() {
             </div>
 
             <div
-              className="relative flex h-[360px] items-center justify-center overflow-hidden rounded-3xl border border-border md:h-[480px]"
+              className="relative h-[360px] overflow-hidden rounded-3xl border border-border md:h-[480px]"
               style={{
                 background: `linear-gradient(135deg, ${service.color} 0%, ${service.accent} 100%)`,
               }}
             >
-              <div className="scale-[2.4]">
-                <Service3DIcon shape={service.shape} color={service.color} accent="#ffffff" />
-              </div>
+              <img
+                src={service.image}
+                alt={service.title}
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
         </section>
@@ -118,14 +123,16 @@ function ServiceDetail() {
         {/* Image + text block */}
         <section className="mx-auto max-w-7xl px-6 py-16 md:py-24">
           <div className="grid items-center gap-12 md:grid-cols-2">
-            <div
-              className="aspect-[4/3] w-full rounded-3xl border border-border"
-              style={{
-                background: `linear-gradient(160deg, ${service.accent} 0%, ${service.color} 100%)`,
-              }}
-              role="img"
-              aria-label={`Imagen ilustrativa de ${service.title}`}
-            />
+            <div className="aspect-[4/3] w-full overflow-hidden rounded-3xl border border-border">
+              <img
+                src={service.image}
+                alt={`Imagen ilustrativa de ${service.title}`}
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="h-full w-full object-cover"
+              />
+            </div>
             <div>
               <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
                 Lo que incluye
