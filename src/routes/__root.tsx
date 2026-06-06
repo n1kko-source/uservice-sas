@@ -100,6 +100,43 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "UService",
+          url: "https://uservice.vercel.app",
+          logo: "https://uservice.vercel.app/favicon.svg",
+          description:
+            "UService diseña y desarrolla software empresarial, aplicaciones web y móviles a medida para empresas que quieren crecer.",
+          taxID: "902.066.769-0",
+          address: { "@type": "PostalAddress", addressCountry: "CO" },
+          contactPoint: {
+            "@type": "ContactPoint",
+            email: "uservicesas@gmail.com",
+            telephone: "+57-320-644-8690",
+            contactType: "sales",
+          },
+          sameAs: [
+            "https://linkedin.com/company/uservice",
+            "https://instagram.com/uservice",
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "UService",
+          url: "https://uservice.vercel.app",
+          description: "Soluciones tecnológicas para empresas.",
+          inLanguage: "es-CO",
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,

@@ -1,20 +1,38 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, Environment } from "@react-three/drei";
 import { Suspense, useRef } from "react";
-import type { Mesh } from "three";
+import type { Group, Mesh } from "three";
 
-function Knot() {
-  const ref = useRef<Mesh>(null);
+function Knot({
+  scrollProgress,
+  mouseX,
+  mouseY,
+}: {
+  scrollProgress: number;
+  mouseX: number;
+  mouseY: number;
+}) {
+  const meshRef = useRef<Mesh>(null);
+  const groupRef = useRef<Group>(null);
+
   useFrame((_, dt) => {
-    if (ref.current) {
-      ref.current.rotation.x += dt * 0.15;
-      ref.current.rotation.y += dt * 0.2;
+    if (meshRef.current) {
+      meshRef.current.rotation.x += dt * 0.15;
+      meshRef.current.rotation.y += dt * 0.2;
+      meshRef.current.rotation.z = scrollProgress * 0.35;
+    }
+    if (groupRef.current) {
+      const targetX = 0.55 + mouseX * 0.18;
+      const targetY = mouseY * 0.12;
+      groupRef.current.position.x += (targetX - groupRef.current.position.x) * 0.06;
+      groupRef.current.position.y += (targetY - groupRef.current.position.y) * 0.06;
     }
   });
+
   return (
-    <group position={[0.55, 0, 0]}>
+    <group ref={groupRef} position={[0.55, 0, 0]}>
       <Float speed={1.1} rotationIntensity={0.22} floatIntensity={0.55}>
-        <mesh ref={ref} scale={1.28}>
+        <mesh ref={meshRef} scale={1.28}>
           <torusKnotGeometry args={[1, 0.32, 220, 32]} />
           <MeshDistortMaterial
             color="#0a1628"
@@ -33,7 +51,15 @@ function Knot() {
   );
 }
 
-export function Hero3D() {
+export function Hero3D({
+  scrollProgress,
+  mouseX,
+  mouseY,
+}: {
+  scrollProgress: number;
+  mouseX: number;
+  mouseY: number;
+}) {
   return (
     <div className="absolute inset-0">
       <Canvas
@@ -47,7 +73,7 @@ export function Hero3D() {
         <pointLight position={[4, -1, 3]} intensity={1.4} color="#22d3ee" />
         <directionalLight position={[-4, -2, -3]} intensity={0.5} color="#7aa7ff" />
         <Suspense fallback={null}>
-          <Knot />
+          <Knot scrollProgress={scrollProgress} mouseX={mouseX} mouseY={mouseY} />
           <Environment preset="city" />
         </Suspense>
       </Canvas>

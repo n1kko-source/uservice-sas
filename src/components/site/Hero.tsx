@@ -1,9 +1,45 @@
+import { useEffect, useRef, useState } from "react";
 import { Hero3D } from "./Hero3D";
 
 export function Hero() {
+  const [show3D, setShow3D] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [mouseX, setMouseX] = useState(0);
+  const [mouseY, setMouseY] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setShow3D(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const sync = () => {
+      const rect = el.getBoundingClientRect();
+      const progress = Math.max(0, Math.min(1, -rect.top / rect.height));
+      setScrollProgress(progress);
+    };
+
+    sync();
+    window.addEventListener("scroll", sync, { passive: true });
+    return () => window.removeEventListener("scroll", sync);
+  }, []);
+
+  function onPointerMove(e: React.PointerEvent) {
+    const x = (e.clientX / window.innerWidth) * 2 - 1;
+    const y = -(e.clientY / window.innerHeight) * 2 + 1;
+    setMouseX(x);
+    setMouseY(y);
+  }
+
   return (
     <section
       id="inicio"
+      ref={sectionRef}
+      onPointerMove={onPointerMove}
       className="relative min-h-[100svh] overflow-hidden bg-[#050508] text-white"
     >
       {/* Dot grid */}
@@ -15,9 +51,9 @@ export function Hero() {
         }}
       />
 
-      {/* 3D layer — full background, no clipping */}
+      {/* 3D layer — deferred post-first-paint */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        <Hero3D />
+        {show3D ? <Hero3D scrollProgress={scrollProgress} mouseX={mouseX} mouseY={mouseY} /> : <div className="absolute inset-0 bg-[#050508]" />}
         <div
           className="absolute left-[45%] top-[28%] h-[300px] w-[min(55vw,520px)] -translate-x-1/2 rounded-full opacity-55 blur-[110px] md:top-[24%] md:h-[380px]"
           style={{
