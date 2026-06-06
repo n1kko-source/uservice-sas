@@ -12,7 +12,7 @@ git add .
 
 ## 4. Crea tu primer commit (guardado local)
 
-git commit -m "ABCD26-6 feat: métricas de uptime 30 días y footer institucional HSR"
+git commit -m "Modificación Favicon US con Transición en Dark Theme"
 
 ## 5. Asegúrate de estar en la rama principal (main)
 
