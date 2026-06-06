@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, RoundedBox, Environment, ContactShadows } from "@react-three/drei";
+import { Float, RoundedBox, Environment } from "@react-three/drei";
 import { Suspense, useRef } from "react";
 import type { Group } from "three";
 import type { ServiceShape } from "@/lib/services-data";
@@ -112,14 +112,6 @@ export function Service3DIcon({
         <Suspense fallback={null}>
           <Geometry shape={shape} color={color} accent={accent} />
           <Environment preset="city" />
-          <ContactShadows
-            position={[0, -1.2, 0]}
-            opacity={0.6}
-            scale={10}
-            blur={2.5}
-            far={4}
-            color="#000000"
-          />
         </Suspense>
       </Canvas>
     </div>

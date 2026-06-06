@@ -130,6 +130,9 @@
   .marquee {
     animation: marquee 35s linear infinite;
   }
+  .marquee-pausable:has(.client-item:hover) {
+    animation-play-state: paused;
+  }
   @keyframes marquee {
     from {
       transform: translateX(0);
