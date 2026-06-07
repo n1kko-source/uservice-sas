@@ -4,7 +4,7 @@ git init
 
 ## 2. Vincula tu carpeta local con tu repositorio de GitHub
 
-git remote add origin [https://github.com/n1kko-source/uservice-tech-showcase.git](https://github.com/n1kko-source/uservice-tech-showcase.git)
+git remote add origin [https://github.com/n1kko-source/uservice-sas.git](https://github.com/n1kko-source/uservice-tech-showcase.git)
 
 ## 3. Agrega todos los archivos al área de preparación
 
@@ -12,7 +12,7 @@ git add .
 
 ## 4. Crea tu primer commit (guardado local)
 
-git commit -m "Modificación Hero 3D Movimiento con Seguimiento Mouse - Optimización de la Web"
+git commit -m "Modificación Aplicaciones Moviles iPhone 3D Movimiento"
 
 ## 5. Asegúrate de estar en la rama principal (main)
 
