@@ -91,7 +91,7 @@ function ServiceDetail() {
       <Navbar />
       <main className="pt-28">
         {/* Hero */}
-        <section className="mx-auto max-w-7xl px-6 pb-16 pt-8 md:pb-24 md:pt-16">
+        <section className="mx-auto max-w-7xl px-6 pb-8 pt-8 md:pb-16 md:pt-16">
           <Link
             to="/"
             hash="servicios"
@@ -134,21 +134,12 @@ function ServiceDetail() {
         {/* Image + text block */}
         <section className="mx-auto max-w-7xl px-6 py-16 md:py-24">
           <div className="grid items-center gap-12 md:grid-cols-2">
-            <div className="aspect-[4/3] w-full overflow-hidden rounded-3xl border border-border">
-              <img
-                src={service.image}
-                alt={`Imagen ilustrativa de ${service.title}`}
-                loading="lazy"
-                width={1024}
-                height={1024}
-                className="h-full w-full object-cover"
-              />
-            </div>
+            <ServiceHeroVisual service={service} className="aspect-[4/3] w-full rounded-3xl" />
             <div>
               <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
                 Lo que incluye
               </h2>
-              <p className="mt-4 text-muted-foreground">
+              <p className="mt-8 text-muted-foreground">
                 Cada proyecto se adapta a tu contexto, pero estos son los componentes que más valor
                 aportan en este servicio.
               </p>

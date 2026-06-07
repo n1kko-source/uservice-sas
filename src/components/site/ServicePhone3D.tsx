@@ -1,11 +1,12 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, Float, Environment } from "@react-three/drei";
-import { Suspense, useRef } from "react";
+import { Suspense, useMemo, useRef } from "react";
 import { cn } from "@/lib/utils";
 import type { Group } from "three";
 
 function PhoneModel() {
   const { scene } = useGLTF("/models/iPhone.glb");
+  const clonedScene = useMemo(() => scene.clone(), []);
   const groupRef = useRef<Group>(null);
 
   useFrame((_, dt) => {
@@ -17,7 +18,7 @@ function PhoneModel() {
   return (
     <Float speed={1.5} rotationIntensity={0.08} floatIntensity={0.12}>
       <group ref={groupRef} position={[0, -0.08, 0]}>
-        <primitive object={scene} />
+        <primitive object={clonedScene} />
       </group>
     </Float>
   );
