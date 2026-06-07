@@ -53,7 +53,11 @@ export function Hero() {
 
       {/* 3D layer — deferred post-first-paint */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        {show3D ? <Hero3D scrollProgress={scrollProgress} mouseX={mouseX} mouseY={mouseY} /> : <div className="absolute inset-0 bg-[#050508]" />}
+        {show3D ? (
+          <Hero3D scrollProgress={scrollProgress} mouseX={mouseX} mouseY={mouseY} />
+        ) : (
+          <div className="absolute inset-0 bg-[#050508]" />
+        )}
         <div
           className="absolute left-[45%] top-[28%] h-[300px] w-[min(55vw,520px)] -translate-x-1/2 rounded-full opacity-55 blur-[110px] md:top-[24%] md:h-[380px]"
           style={{

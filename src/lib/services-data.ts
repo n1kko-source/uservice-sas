@@ -1,9 +1,9 @@
-import desarrolloWebImg from "@/assets/services/desarrollo-web.jpg";
-import softwareEmpresarialImg from "@/assets/services/software-empresarial.jpg";
 import aplicacionesMovilesImg from "@/assets/services/aplicaciones-moviles.jpg";
-import integracionesApisImg from "@/assets/services/integraciones-apis.jpg";
 import cloudDevopsImg from "@/assets/services/cloud-devops.jpg";
 import consultoriaImg from "@/assets/services/consultoria.jpg";
+import desarrolloWebImg from "@/assets/services/desarrollo-web.jpg";
+import integracionesApisImg from "@/assets/services/integraciones-apis.jpg";
+import softwareEmpresarialImg from "@/assets/services/software-empresarial.jpg";
 
 export type ServiceShape = "roundedBox" | "sphere" | "torus" | "capsule" | "knot" | "dodeca";
 
@@ -18,6 +18,7 @@ export type Service = {
   features: string[];
   deliverables: string[];
   image: string;
+  model3d?: string;
 };
 
 export const services: Service[] = [
@@ -86,6 +87,7 @@ export const services: Service[] = [
       "Lanzamiento y mejoras continuas",
     ],
     image: aplicacionesMovilesImg,
+    model3d: "/models/iPhone.glb",
   },
   {
     slug: "integraciones-apis",

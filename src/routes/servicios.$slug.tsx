@@ -1,7 +1,8 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Navbar } from "@/components/site/Navbar";
-import { Footer } from "@/components/site/Footer";
 import { Contact } from "@/components/site/Contact";
+import { Footer } from "@/components/site/Footer";
+import { Navbar } from "@/components/site/Navbar";
+import { ServicePhone3D } from "@/components/site/ServicePhone3D";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 
 import { Toaster } from "@/components/ui/sonner";
 import { getService, services, type Service } from "@/lib/services-data";
@@ -57,6 +58,30 @@ export const Route = createFileRoute("/servicios/$slug")({
   component: ServiceDetail,
 });
 
+function ServiceHeroVisual({ service, className }: { service: Service; className?: string }) {
+  if (service.model3d) {
+    return <ServicePhone3D className={className} />;
+  }
+
+  return (
+    <div
+      className={`overflow-hidden rounded-3xl border border-border ${className ?? ""}`}
+      style={{
+        background: `linear-gradient(135deg, ${service.color} 0%, ${service.accent} 100%)`,
+      }}
+    >
+      <img
+        src={service.image}
+        alt={service.title}
+        loading="lazy"
+        width={1024}
+        height={1024}
+        className="h-full w-full object-cover"
+      />
+    </div>
+  );
+}
+
 function ServiceDetail() {
   const { service } = Route.useLoaderData() as { service: Service };
   const others = services.filter((s) => s.slug !== service.slug).slice(0, 3);
@@ -75,16 +100,16 @@ function ServiceDetail() {
             ← Servicios
           </Link>
 
-          <div className="mt-8 grid items-center gap-12 md:grid-cols-2">
+          <div className="mt-8 grid items-center gap-10 md:grid-cols-2 md:gap-14">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">
                 Servicio
               </p>
-              <h1 className="mt-4 text-balance font-display text-5xl font-semibold tracking-tight md:text-6xl">
+              <h1 className="mt-8 text-balance font-display text-5xl font-semibold tracking-tight md:text-6xl">
                 {service.title}
               </h1>
-              <p className="mt-6 text-balance text-lg text-muted-foreground">{service.long}</p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <p className="mt-8 text-balance text-lg text-muted-foreground">{service.long}</p>
+              <div className="mt-10 flex flex-wrap gap-3">
                 <Link
                   to="/"
                   hash="contacto"
@@ -102,21 +127,7 @@ function ServiceDetail() {
               </div>
             </div>
 
-            <div
-              className="relative h-[360px] overflow-hidden rounded-3xl border border-border md:h-[480px]"
-              style={{
-                background: `linear-gradient(135deg, ${service.color} 0%, ${service.accent} 100%)`,
-              }}
-            >
-              <img
-                src={service.image}
-                alt={service.title}
-                loading="lazy"
-                width={1024}
-                height={1024}
-                className="h-full w-full object-cover"
-              />
-            </div>
+            <ServiceHeroVisual service={service} className="h-[320px] md:h-[420px]" />
           </div>
         </section>
 

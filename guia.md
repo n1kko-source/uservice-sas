@@ -12,7 +12,7 @@ git add .
 
 ## 4. Crea tu primer commit (guardado local)
 
-git commit -m "Modificación Favicon US con Transición en Dark Theme"
+git commit -m "Modificación Hero 3D Movimiento con Seguimiento Mouse - Optimización de la Web"
 
 ## 5. Asegúrate de estar en la rama principal (main)
 

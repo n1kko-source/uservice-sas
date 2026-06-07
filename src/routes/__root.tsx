@@ -119,10 +119,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             telephone: "+57-320-644-8690",
             contactType: "sales",
           },
-          sameAs: [
-            "https://linkedin.com/company/uservice",
-            "https://instagram.com/uservice",
-          ],
+          sameAs: ["https://linkedin.com/company/uservice", "https://instagram.com/uservice"],
         }),
       },
       {
