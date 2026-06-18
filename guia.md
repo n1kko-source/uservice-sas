@@ -12,7 +12,7 @@ git add .
 
 ## 4. Crea tu primer commit (guardado local)
 
-git commit -m "Modificación Aplicaciones Moviles iPhone 3D Movimiento"
+git commit -m "Modificación Aplicaciones Moviles iPhone 3D en cada Sección Movimiento"
 
 ## 5. Asegúrate de estar en la rama principal (main)
 

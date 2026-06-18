@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import nicolasPerfil from "../../assets/nicolas-perfil.jpeg";
+import nicolasPerfil from "../../assets/nicolas-perfil.webp";
+import juanPerfil from "../../assets/juan-perfil.webp";
+import julianaPerfil from "../../assets/juliana-perfil.webp";
 
 const countries = [
   "Colombia",
@@ -105,18 +107,18 @@ export function Contact() {
           <div className="mt-10 flex gap-8">
             <div className="flex flex-col items-center">
               <img
-                src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                alt="Integrante Latam"
+                src={juanPerfil}
+                alt="Juan"
                 className="h-24 w-24 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg"
               />
               <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">
-                Latam
+                Latinoamérica
               </span>
             </div>
             <div className="flex flex-col items-center">
               <img
-                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                alt="Integrante Europa"
+                src={julianaPerfil}
+                alt="Juliana"
                 className="h-24 w-24 rounded-full object-cover border-2 border-primary-foreground/20 shadow-lg"
               />
               <span className="mt-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80">
