@@ -94,7 +94,7 @@ export function Hero() {
           <div className="max-w-md lg:text-right">
             <p className="text-base leading-relaxed text-white/60 md:text-[17px]">
               En UService diseñamos, desarrollamos y desplegamos software empresarial, aplicaciones
-              web y móviles con estándares de clase mundial.
+              web y móviles.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3 lg:justify-end">
               <a
