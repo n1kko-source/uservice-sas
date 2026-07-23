@@ -8,6 +8,7 @@ const seoPaths = [
   "/",
   "/nosotros",
   "/servicios",
+  "/clientes",
   "/blog",
   "/blog/cuanto-cuesta-software-a-medida",
   "/blog/software-a-medida-vs-empaquetado",
@@ -25,8 +26,16 @@ export default defineConfig({
     tailwindcss(),
     tsConfigPaths({ projects: ["./tsconfig.json"] }),
     tanstackStart({
+      // Top-level only — nesting under prerender is stripped by Zod
+      pages: seoPaths.map((path) => ({
+        path,
+        prerender: { enabled: true },
+      })),
+      // SPA shell also registers path "/" and wins in the prerender Map merge,
+      // overwriting the real home HTML with an empty shell. Disabled so "/"
+      // prerenders to index.html with full content for SEO.
       spa: {
-        enabled: true,
+        enabled: false,
       },
       prerender: {
         enabled: true,
@@ -34,10 +43,6 @@ export default defineConfig({
         autoStaticPathsDiscovery: true,
         failOnError: true,
         filter: ({ path }) => !path.includes("#"),
-        pages: seoPaths.map((path) => ({
-          path,
-          prerender: { enabled: true },
-        })),
       },
     }),
     viteReact(),

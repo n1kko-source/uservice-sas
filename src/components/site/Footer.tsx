@@ -1,8 +1,8 @@
-import { Link } from "@tanstack/react-router";
-import { Linkedin, Instagram, Mail } from "lucide-react";
 import logo from "@/assets/us-logo.png";
 import { blogPosts } from "@/lib/blog-data";
 import { services } from "@/lib/services-data";
+import { Link } from "@tanstack/react-router";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
   return (

@@ -1,7 +1,7 @@
-import { Link } from "@tanstack/react-router";
-import { Service3DIcon } from "./Service3DIcon";
 import { useReveal } from "@/hooks/use-reveal";
 import { services, type Service } from "@/lib/services-data";
+import { Link } from "@tanstack/react-router";
+import { Service3DIcon } from "./Service3DIcon";
 
 function ServiceCard({ service, delay }: { service: Service; delay: number }) {
   const ref = useReveal<HTMLDivElement>();

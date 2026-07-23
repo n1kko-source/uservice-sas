@@ -22,6 +22,7 @@
     }
   ],
   "rewrites": [
+    { "source": "/", "destination": "/index.html" },
     { "source": "/nosotros", "destination": "/nosotros/index.html" },
     { "source": "/servicios", "destination": "/servicios/index.html" },
     { "source": "/blog", "destination": "/blog/index.html" },
@@ -63,7 +64,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/_shell.html"
+      "destination": "/index.html"
     }
   ]
 }

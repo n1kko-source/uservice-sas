@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
 import { Hero3D } from "./Hero3D";
 
 export function Hero() {

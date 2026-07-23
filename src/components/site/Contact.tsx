@@ -1,9 +1,9 @@
+import { trackGenerateLead } from "@/lib/analytics";
 import { useState } from "react";
 import { toast } from "sonner";
-import { trackGenerateLead } from "@/lib/analytics";
-import nicolasPerfil from "../../assets/nicolas-perfil.webp";
 import juanPerfil from "../../assets/juan-perfil.webp";
 import julianaPerfil from "../../assets/juliana-perfil.webp";
+import nicolasPerfil from "../../assets/nicolas-perfil.webp";
 
 const countries = [
   "Colombia",

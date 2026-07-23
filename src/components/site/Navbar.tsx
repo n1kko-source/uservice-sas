@@ -1,7 +1,7 @@
-import { useEffect, useLayoutEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
-import logo from "@/assets/us-logo.png";
 import logoWhite from "@/assets/us-logo-white.png";
+import logo from "@/assets/us-logo.png";
+import { Link } from "@tanstack/react-router";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 const links = [
   { to: "/", label: "Inicio" },
