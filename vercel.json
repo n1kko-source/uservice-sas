@@ -1,6 +1,5 @@
 {
   "outputDirectory": "dist/client",
-  "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
     {
@@ -23,6 +22,36 @@
     }
   ],
   "rewrites": [
+    { "source": "/nosotros", "destination": "/nosotros/index.html" },
+    { "source": "/blog", "destination": "/blog/index.html" },
+    {
+      "source": "/terminos-y-condiciones",
+      "destination": "/terminos-y-condiciones/index.html"
+    },
+    {
+      "source": "/servicios/desarrollo-web",
+      "destination": "/servicios/desarrollo-web/index.html"
+    },
+    {
+      "source": "/servicios/software-empresarial",
+      "destination": "/servicios/software-empresarial/index.html"
+    },
+    {
+      "source": "/servicios/aplicaciones-moviles",
+      "destination": "/servicios/aplicaciones-moviles/index.html"
+    },
+    {
+      "source": "/servicios/integraciones-apis",
+      "destination": "/servicios/integraciones-apis/index.html"
+    },
+    {
+      "source": "/servicios/cloud-devops",
+      "destination": "/servicios/cloud-devops/index.html"
+    },
+    {
+      "source": "/servicios/consultoria",
+      "destination": "/servicios/consultoria/index.html"
+    },
     {
       "source": "/(.*)",
       "destination": "/_shell.html"
