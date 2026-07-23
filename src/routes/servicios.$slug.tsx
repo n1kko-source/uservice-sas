@@ -72,7 +72,7 @@ export const Route = createFileRoute("/servicios/$slug")({
                 "@type": "ListItem",
                 position: 2,
                 name: "Servicios",
-                item: absoluteUrl("/#servicios"),
+                item: absoluteUrl("/servicios"),
               },
               {
                 "@type": "ListItem",
@@ -92,8 +92,7 @@ export const Route = createFileRoute("/servicios/$slug")({
         <h1 className="font-display text-5xl font-semibold">Servicio no encontrado</h1>
         <p className="mt-3 text-muted-foreground">El servicio que buscas no existe o fue movido.</p>
         <Link
-          to="/"
-          hash="servicios"
+          to="/servicios"
           className="mt-6 inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
         >
           Ver todos los servicios
@@ -152,11 +151,7 @@ function ServiceDetail() {
       <main className="pt-28">
         {/* Hero */}
         <section className="mx-auto max-w-7xl px-6 pb-8 pt-8 md:pb-16 md:pt-16">
-          <Link
-            to="/"
-            hash="servicios"
-            className="text-sm text-muted-foreground hover:text-foreground"
-          >
+          <Link to="/servicios" className="text-sm text-muted-foreground hover:text-foreground">
             ← Servicios
           </Link>
 
@@ -178,8 +173,7 @@ function ServiceDetail() {
                   Cotizar este servicio
                 </Link>
                 <Link
-                  to="/"
-                  hash="servicios"
+                  to="/servicios"
                   className="rounded-full px-6 py-3 text-sm font-medium text-primary hover:text-primary/80"
                 >
                   Ver otros servicios →
@@ -243,7 +237,7 @@ function ServiceDetail() {
             <h2 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">
               Otros servicios
             </h2>
-            <Link to="/" hash="servicios" className="text-sm font-medium text-primary">
+            <Link to="/servicios" className="text-sm font-medium text-primary">
               Ver todos →
             </Link>
           </div>

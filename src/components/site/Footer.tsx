@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Instagram, Mail } from "lucide-react";
 import logo from "@/assets/us-logo.png";
+import { blogPosts } from "@/lib/blog-data";
+import { services } from "@/lib/services-data";
 
 export function Footer() {
   return (
@@ -51,11 +53,6 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link to="/" hash="servicios" className="hover:text-foreground">
-                Servicios
-              </Link>
-            </li>
-            <li>
               <Link to="/blog" className="hover:text-foreground">
                 Blog
               </Link>
@@ -65,22 +62,39 @@ export function Footer() {
                 Contacto
               </Link>
             </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-sm font-semibold">Legal</h4>
-          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li>
-              <a href="#" className="hover:text-foreground">
-                Privacidad
-              </a>
-            </li>
             <li>
               <Link to="/terminos-y-condiciones" className="hover:text-foreground">
                 Términos y Condiciones
               </Link>
             </li>
+          </ul>
+
+          <h4 className="mt-8 text-sm font-semibold">Servicios</h4>
+          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+            {services.map((service) => (
+              <li key={service.slug}>
+                <Link
+                  to="/servicios/$slug"
+                  params={{ slug: service.slug }}
+                  className="hover:text-foreground"
+                >
+                  {service.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold">Blog</h4>
+          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+            {blogPosts.map((post) => (
+              <li key={post.slug}>
+                <Link to="/blog/$slug" params={{ slug: post.slug }} className="hover:text-foreground">
+                  {post.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

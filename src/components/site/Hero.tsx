@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Hero3D } from "./Hero3D";
 
 export function Hero() {
@@ -103,15 +104,15 @@ export function Hero() {
               >
                 Cotizar proyecto
               </a>
-              <a
-                href="#servicios"
+              <Link
+                to="/servicios"
                 className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-[#050508] transition-all hover:bg-white/90"
               >
                 Conocer servicios
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#0f1e36] text-xs text-white transition-transform group-hover:scale-105">
                   +
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

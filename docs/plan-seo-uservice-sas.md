@@ -30,7 +30,7 @@
 | 2 | Unificar dominio canónico (`www`), alinear redirects + canonical/OG/schema | Dev | Crítico — evita dilución de señales | ✅ Hecho (`www.userviceglobal.com`) |
 | 3 | Crear `robots.txt` + `sitemap.xml` reales (hoy sirven HTML del SPA) | Dev | Crítico — indexación | ✅ Hecho (`public/`) |
 | 4 | Verificar GSC + GA4 + enviar sitemap; Bing Webmaster | Cliente + Dev | Crítico — medición | 🟡 GSC+GA4 listos — **falta enviar sitemap en GSC tras deploy** |
-| 5 | On-page home + 6 servicios + 2 artículos reales (titles, H1, schema, posts con URL) | Dev + Contenido | Alto — ranking + leads | 🟡 On-page base hecho — faltan artículos reales del blog |
+| 5 | On-page home + 6 servicios + 2 artículos reales (titles, H1, schema, posts con URL) | Dev + Contenido | Alto — ranking + leads | ✅ Hecho (2 artículos en `/blog/...`) |
 
 ---
 

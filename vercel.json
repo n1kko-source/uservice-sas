@@ -23,7 +23,16 @@
   ],
   "rewrites": [
     { "source": "/nosotros", "destination": "/nosotros/index.html" },
+    { "source": "/servicios", "destination": "/servicios/index.html" },
     { "source": "/blog", "destination": "/blog/index.html" },
+    {
+      "source": "/blog/cuanto-cuesta-software-a-medida",
+      "destination": "/blog/cuanto-cuesta-software-a-medida/index.html"
+    },
+    {
+      "source": "/blog/software-a-medida-vs-empaquetado",
+      "destination": "/blog/software-a-medida-vs-empaquetado/index.html"
+    },
     {
       "source": "/terminos-y-condiciones",
       "destination": "/terminos-y-condiciones/index.html"

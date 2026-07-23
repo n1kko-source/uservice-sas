@@ -4,8 +4,8 @@ import logo from "@/assets/us-logo.png";
 import logoWhite from "@/assets/us-logo-white.png";
 
 const links = [
-  { to: "/", hash: "inicio", label: "Inicio" },
-  { to: "/", hash: "servicios", label: "Servicios" },
+  { to: "/", label: "Inicio" },
+  { to: "/servicios", label: "Servicios" },
   { to: "/", hash: "clientes", label: "Clientes" },
   { to: "/nosotros", label: "Nosotros" },
   { to: "/blog", label: "Blog" },

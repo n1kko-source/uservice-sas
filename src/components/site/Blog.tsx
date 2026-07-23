@@ -1,42 +1,21 @@
+import { Link } from "@tanstack/react-router";
 import { useReveal } from "@/hooks/use-reveal";
-import arquitecturaImg from "@/assets/blog/arquitectura-saas.jpg";
-import serverlessImg from "@/assets/blog/serverless.jpg";
-import metricasImg from "@/assets/blog/metricas-producto.jpg";
+import { blogPosts, type BlogPost } from "@/lib/blog-data";
 
-const posts = [
-  {
-    cat: "Desarrollo",
-    title: "5 patrones de arquitectura para escalar tu SaaS",
-    date: "12 May 2026",
-    image: arquitecturaImg,
-  },
-  {
-    cat: "Cloud",
-    title: "Migrar a serverless sin romper tu equipo",
-    date: "28 Abr 2026",
-    image: serverlessImg,
-  },
-  {
-    cat: "Producto",
-    title: "Cómo medir el éxito real de un producto digital",
-    date: "10 Abr 2026",
-    image: metricasImg,
-  },
-];
-
-function PostCard({ post, i }: { post: (typeof posts)[number]; i: number }) {
+function PostCard({ post, i }: { post: BlogPost; i: number }) {
   const ref = useReveal<HTMLAnchorElement>();
   return (
-    <a
+    <Link
       ref={ref}
-      href="#"
+      to="/blog/$slug"
+      params={{ slug: post.slug }}
       className="fade-up group block overflow-hidden rounded-3xl border border-border bg-card transition-all hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(15,30,54,0.35)]"
       style={{ transitionDelay: `${i * 80}ms` }}
     >
       <div className="aspect-[4/3] w-full overflow-hidden">
         <img
           src={post.image}
-          alt={post.title}
+          alt={post.imageAlt}
           loading="lazy"
           width={1024}
           height={1024}
@@ -46,16 +25,17 @@ function PostCard({ post, i }: { post: (typeof posts)[number]; i: number }) {
       <div className="p-6">
         <div className="flex items-center gap-3 text-xs text-muted-foreground">
           <span className="rounded-full bg-secondary px-2.5 py-1 font-medium text-foreground/70">
-            {post.cat}
+            {post.category}
           </span>
-          <span>{post.date}</span>
+          <span>{post.dateLabel}</span>
         </div>
         <h3 className="mt-4 font-display text-xl font-semibold tracking-tight">{post.title}</h3>
+        <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">{post.description}</p>
         <div className="mt-4 inline-flex items-center text-sm font-medium text-primary">
           Leer artículo →
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 
@@ -70,17 +50,17 @@ export function Blog() {
               Ideas para construir mejor software.
             </h2>
           </div>
-          <a
-            href="#"
+          <Link
+            to="/blog"
             className="rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
           >
             Ver todos →
-          </a>
+          </Link>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {posts.map((p, i) => (
-            <PostCard key={p.title} post={p} i={i} />
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {blogPosts.map((p, i) => (
+            <PostCard key={p.slug} post={p} i={i} />
           ))}
         </div>
       </div>

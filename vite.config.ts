@@ -4,10 +4,13 @@ import viteReact from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
-const prerenderPages = [
+const seoPaths = [
   "/",
   "/nosotros",
+  "/servicios",
   "/blog",
+  "/blog/cuanto-cuesta-software-a-medida",
+  "/blog/software-a-medida-vs-empaquetado",
   "/terminos-y-condiciones",
   "/servicios/desarrollo-web",
   "/servicios/software-empresarial",
@@ -15,7 +18,7 @@ const prerenderPages = [
   "/servicios/integraciones-apis",
   "/servicios/cloud-devops",
   "/servicios/consultoria",
-].map((path) => ({ path }));
+];
 
 export default defineConfig({
   plugins: [
@@ -31,7 +34,10 @@ export default defineConfig({
         autoStaticPathsDiscovery: true,
         failOnError: true,
         filter: ({ path }) => !path.includes("#"),
-        pages: prerenderPages,
+        pages: seoPaths.map((path) => ({
+          path,
+          prerender: { enabled: true },
+        })),
       },
     }),
     viteReact(),
