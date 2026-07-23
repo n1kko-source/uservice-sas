@@ -8,7 +8,6 @@ const seoPaths = [
   "/",
   "/nosotros",
   "/servicios",
-  "/clientes",
   "/blog",
   "/blog/cuanto-cuesta-software-a-medida",
   "/blog/software-a-medida-vs-empaquetado",
