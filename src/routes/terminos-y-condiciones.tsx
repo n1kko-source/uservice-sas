@@ -1,14 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { absoluteUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/terminos-y-condiciones")({
   component: TerminosYCondiciones,
   head: () => ({
     meta: [
-      { title: "Términos y Condiciones — UService" },
+      { title: "Términos y Condiciones | UService" },
       { name: "description", content: "Términos y condiciones de uso de UService." },
+      { property: "og:url", content: absoluteUrl("/terminos-y-condiciones") },
     ],
+    links: [{ rel: "canonical", href: absoluteUrl("/terminos-y-condiciones") }],
   }),
 });
 

@@ -80,8 +80,8 @@ export function Hero() {
               className="font-display text-[2.65rem] font-semibold leading-[0.95] tracking-tight text-balance sm:text-5xl md:text-6xl lg:text-[5rem] xl:text-[5.5rem]"
               style={{ textShadow: "0 4px 60px rgba(0,0,0,0.55), 0 0 120px rgba(5,5,8,0.9)" }}
             >
-              Soluciones tecnológicas
-              <span className="mt-1 block text-white/90">que impulsan tu negocio.</span>
+              Desarrollo de software a medida
+              <span className="mt-1 block text-white/90">para empresas que quieren crecer.</span>
             </h1>
             <p className="mt-5 text-[11px] font-medium tracking-[0.22em] text-white/45 uppercase sm:mt-6 sm:text-xs">
               Software \ Web \ Móvil \ Cloud \ AI

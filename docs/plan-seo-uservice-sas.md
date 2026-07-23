@@ -24,13 +24,13 @@
 
 ## TOP 5 — Mes 1 (hacer primero)
 
-| # | Acción | Quién | Impacto |
-|---|--------|-------|---------|
-| 1 | **SSR/prerender del HTML** (hoy el body llega vacío; solo meta en head) | Dev | Crítico — sin esto Google ve poco contenido |
-| 2 | Unificar dominio canónico (`www`), alinear redirects + canonical/OG/schema | Dev | Crítico — evita dilución de señales |
-| 3 | Crear `robots.txt` + `sitemap.xml` reales (hoy sirven HTML del SPA) | Dev | Crítico — indexación |
-| 4 | Verificar GSC + GA4 + enviar sitemap; Bing Webmaster | Cliente + Dev | Crítico — medición |
-| 5 | On-page home + 6 servicios + 2 artículos reales (titles, H1, schema, posts con URL) | Dev + Contenido | Alto — ranking + leads |
+| # | Acción | Quién | Impacto | Estado |
+|---|--------|-------|---------|--------|
+| 1 | **SSR/prerender del HTML** (hoy el body llega vacío; solo meta en head) | Dev | Crítico — sin esto Google ve poco contenido | ✅ Hecho (prerender estático de rutas clave) |
+| 2 | Unificar dominio canónico (`www`), alinear redirects + canonical/OG/schema | Dev | Crítico — evita dilución de señales | ✅ Hecho (`www.userviceglobal.com`) |
+| 3 | Crear `robots.txt` + `sitemap.xml` reales (hoy sirven HTML del SPA) | Dev | Crítico — indexación | ✅ Hecho (`public/`) |
+| 4 | Verificar GSC + GA4 + enviar sitemap; Bing Webmaster | Cliente + Dev | Crítico — medición | 🟡 GSC+GA4 listos — **falta enviar sitemap en GSC tras deploy** |
+| 5 | On-page home + 6 servicios + 2 artículos reales (titles, H1, schema, posts con URL) | Dev + Contenido | Alto — ranking + leads | 🟡 On-page base hecho — faltan artículos reales del blog |
 
 ---
 

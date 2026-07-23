@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import { GoogleAnalytics } from "@/components/site/GoogleAnalytics";
+import { SITE_URL, absoluteAsset } from "@/lib/site";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -68,33 +69,81 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "UService",
+  legalName: "UService SAS",
+  url: SITE_URL,
+  logo: absoluteAsset("/og-image.jpg"),
+  image: absoluteAsset("/og-image.jpg"),
+  description:
+    "UService diseña y desarrolla software empresarial, aplicaciones web y móviles a medida para empresas en LatAm y España.",
+  taxID: "902.066.769-0",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "CO",
+  },
+  areaServed: [
+    { "@type": "Country", name: "Colombia" },
+    { "@type": "Country", name: "Spain" },
+    { "@type": "Place", name: "Latin America" },
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "uservicesas@gmail.com",
+    telephone: "+57-320-644-8690",
+    contactType: "sales",
+    availableLanguage: ["Spanish", "English"],
+  },
+  sameAs: ["https://linkedin.com/company/uservice", "https://instagram.com/uservice"],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "UService",
+  url: SITE_URL,
+  description: "Desarrollo de software a medida, web, apps y cloud para empresas.",
+  inLanguage: "es",
+  publisher: {
+    "@type": "Organization",
+    name: "UService SAS",
+    url: SITE_URL,
+  },
+};
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "UService" },
+      { title: "Desarrollo de Software a Medida | UService" },
       {
         name: "description",
         content:
-          "UService diseña y desarrolla software empresarial, aplicaciones web y móviles a medida para empresas que quieren crecer.",
+          "Software empresarial, web, apps y cloud para equipos en LatAm y España. Cotiza tu proyecto con UService SAS — remoto.",
       },
       { name: "author", content: "UService" },
-      { property: "og:title", content: "UService — Soluciones tecnológicas" },
+      { property: "og:title", content: "Desarrollo de Software a Medida | UService" },
       {
         property: "og:description",
         content: "Software a medida, desarrollo web, apps móviles y consultoría tecnológica.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://userviceglobal.com" },
+      { property: "og:url", content: SITE_URL },
       { property: "og:site_name", content: "UService" },
-      { property: "og:image", content: "/og-image.jpg" },
+      { property: "og:locale", content: "es_ES" },
+      { property: "og:image", content: absoluteAsset("/og-image.jpg") },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "UService — Soluciones tecnológicas" },
-      { name: "twitter:description", content: "Software a medida, desarrollo web, apps móviles y consultoría tecnológica." },
-      { name: "twitter:image", content: "/og-image.jpg" },
+      { name: "twitter:title", content: "Desarrollo de Software a Medida | UService" },
+      {
+        name: "twitter:description",
+        content: "Software a medida, desarrollo web, apps móviles y consultoría tecnológica.",
+      },
+      { name: "twitter:image", content: absoluteAsset("/og-image.jpg") },
     ],
     links: [
       { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
@@ -102,7 +151,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", type: "image/png", href: "/favicon-96x96.png", sizes: "96x96" },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
       { rel: "manifest", href: "/site.webmanifest" },
-      { rel: "canonical", href: "https://userviceglobal.com" },
+      { rel: "canonical", href: SITE_URL },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
@@ -114,35 +163,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "UService",
-          url: "https://userviceglobal.com",
-          logo: "https://userviceglobal.com/og-image.jpg",
-          description:
-            "UService diseña y desarrolla software empresarial, aplicaciones web y móviles a medida para empresas que quieren crecer.",
-          taxID: "902.066.769-0",
-          address: { "@type": "PostalAddress", addressCountry: "CO" },
-          contactPoint: {
-            "@type": "ContactPoint",
-            email: "uservicesas@gmail.com",
-            telephone: "+57-320-644-8690",
-            contactType: "sales",
-          },
-          sameAs: ["https://linkedin.com/company/uservice", "https://instagram.com/uservice"],
-        }),
+        children: JSON.stringify(organizationSchema),
       },
       {
         type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "UService",
-          url: "https://userviceglobal.com",
-          description: "Soluciones tecnológicas para empresas.",
-          inLanguage: "es-CO",
-        }),
+        children: JSON.stringify(websiteSchema),
       },
     ],
   }),

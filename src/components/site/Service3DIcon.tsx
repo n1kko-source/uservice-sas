@@ -1,6 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, RoundedBox, Environment } from "@react-three/drei";
-import { Suspense, useRef } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import type { Group } from "three";
 import type { ServiceShape } from "@/lib/services-data";
 
@@ -99,6 +99,17 @@ export function Service3DIcon({
   color: string;
   accent: string;
 }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Defer WebGL until client mount so prerender/SSR stays stable for SEO HTML
+  if (!mounted) {
+    return <div className="h-32 w-32 rounded-2xl bg-secondary/60" aria-hidden />;
+  }
+
   return (
     <div className="h-32 w-32">
       <Canvas

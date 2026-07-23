@@ -6,6 +6,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 
 import { Toaster } from "@/components/ui/sonner";
 import { getService, services, type Service } from "@/lib/services-data";
+import { absoluteAsset, absoluteUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/servicios/$slug")({
   loader: ({ params }) => {
@@ -15,15 +16,74 @@ export const Route = createFileRoute("/servicios/$slug")({
   },
   head: ({ loaderData }) => {
     const s = loaderData?.service;
+    if (!s) {
+      return { meta: [{ title: "Servicio — UService" }] };
+    }
+
+    const url = absoluteUrl(`/servicios/${s.slug}`);
+    const title = `${s.title} | UService`;
+
     return {
-      meta: s
-        ? [
-            { title: `${s.title} — UService` },
-            { name: "description", content: s.desc },
-            { property: "og:title", content: `${s.title} — UService` },
-            { property: "og:description", content: s.desc },
-          ]
-        : [{ title: "Servicio — UService" }],
+      meta: [
+        { title },
+        { name: "description", content: s.desc },
+        { property: "og:title", content: title },
+        { property: "og:description", content: s.desc },
+        { property: "og:url", content: url },
+        { property: "og:type", content: "website" },
+        { property: "og:image", content: absoluteAsset("/og-image.jpg") },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: s.desc },
+        { name: "twitter:image", content: absoluteAsset("/og-image.jpg") },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: s.title,
+            description: s.desc,
+            url,
+            provider: {
+              "@type": "ProfessionalService",
+              name: "UService",
+              url: absoluteUrl("/"),
+            },
+            areaServed: ["Colombia", "Spain", "Latin America"],
+            serviceType: s.title,
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Inicio",
+                item: absoluteUrl("/"),
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Servicios",
+                item: absoluteUrl("/#servicios"),
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: s.title,
+                item: url,
+              },
+            ],
+          }),
+        },
+      ],
     };
   },
   notFoundComponent: () => (

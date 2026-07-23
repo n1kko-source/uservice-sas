@@ -4,23 +4,27 @@ import { About } from "@/components/site/About";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { absoluteAsset, absoluteUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/nosotros")({
   head: () => ({
     meta: [
-      { title: "Nosotros — UService" },
+      { title: "Nosotros | UService" },
       {
         name: "description",
         content:
           "Conoce a UService: misión, valores y proceso de trabajo del equipo detrás de tu próximo producto digital.",
       },
-      { property: "og:title", content: "Nosotros — UService" },
+      { property: "og:title", content: "Nosotros | UService" },
       {
         property: "og:description",
         content:
           "Equipo de ingenieros, diseñadores y estrategas construyendo software con propósito.",
       },
+      { property: "og:url", content: absoluteUrl("/nosotros") },
+      { property: "og:image", content: absoluteAsset("/og-image.jpg") },
     ],
+    links: [{ rel: "canonical", href: absoluteUrl("/nosotros") }],
   }),
   component: NosotrosPage,
 });
