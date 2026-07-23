@@ -8,6 +8,7 @@ import {
   useRouter,
 } from "@tanstack/react-router";
 
+import { GoogleAnalytics } from "@/components/site/GoogleAnalytics";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -170,6 +171,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <GoogleAnalytics />
       <Outlet />
     </QueryClientProvider>
   );

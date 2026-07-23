@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import { trackGenerateLead } from "@/lib/analytics";
 import nicolasPerfil from "../../assets/nicolas-perfil.webp";
 import juanPerfil from "../../assets/juan-perfil.webp";
 import julianaPerfil from "../../assets/juliana-perfil.webp";
@@ -77,6 +78,7 @@ export function Contact() {
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && (data.success === "true" || data.success === true)) {
+        trackGenerateLead({ method: "contact_form", country });
         toast.success("¡Gracias! Te contactaremos en menos de 24h.");
         form.reset();
       } else {
